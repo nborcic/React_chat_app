@@ -30,6 +30,7 @@ body {
   overflow-x: hidden;
   flex: 1;
   min-height: 0;
+  border: #cfcfcf solid 1px;
 }
 
 .chatInput {
@@ -47,7 +48,7 @@ body {
   border-radius: 10px;
 }
 .contactsSideBar {
-  width: 40%;
+  width: 35%;
   height: 100%;
   background-color: white;
 }
