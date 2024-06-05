@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
-function ChatInput() {
+function ChatInput({ addMessage }) {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputValue.trim() !== "") {
+      addMessage(inputValue);
+      setInputValue("");
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit(e);
+    }
+  };
   return (
     <div
       className="chatInput custom-search"
@@ -8,7 +23,7 @@ function ChatInput() {
     >
       <i
         className="alienHead"
-        onClick={() => alert("Icon list")}
+        onClick={() => alert("Icon list needs to be added here!")}
         style={{
           backgroundImage: "url(src/assets/emoji-smile_4.svg)",
           padding: "10px",
@@ -18,6 +33,7 @@ function ChatInput() {
         }}
       ></i>
       <i
+        onClick={() => alert("Add file support add here!")}
         style={{
           backgroundImage: "url(src/assets/input_atachment.png)",
           height: "25px",
@@ -27,13 +43,20 @@ function ChatInput() {
           margin: "8px",
         }}
       ></i>
-      <input
-        type="text"
-        className="custom-search-input"
-        id="input"
-        placeholder="Enter your message here..."
-      />
+      <form onSubmit={handleSubmit} style={{ width: "80%" }}>
+        <input
+          type="text"
+          className="custom-search-input"
+          id="input"
+          required
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={handleKeyPress}
+          value={inputValue}
+          placeholder="Enter your message here..."
+        />
+      </form>
       <i
+        onClick={() => alert("Recordings feature to be added here!")}
         style={{
           backgroundImage: "url(src/assets/input_iconschatdisplay.png)",
           height: "30px",

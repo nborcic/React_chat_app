@@ -1,7 +1,14 @@
-import React from "react";
-import ChatInput from "./ChatInput";
+import React, { useRef, useState, useEffect } from "react";
+import ChatInput from "../Components/ChatInput";
 
-function ChatArea() {
+function ChatArea({ messages, addMessage }) {
+  const latestMessageRef = useRef(null);
+
+  useEffect(() => {
+    if (latestMessageRef.current) {
+      latestMessageRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
   return (
     <div className="chatArea">
       <div className="topToolTips">
@@ -23,9 +30,34 @@ function ChatArea() {
         </div>
       </div>
       <div className="chatDisplay">
-        <div className="chatDiv" id="chatDiv"></div>
+        <div className="chatDiv" id="chatDiv">
+          <div className="chatBubble">
+            <div className="chatText flex flex-col p-2 m-2">
+              {messages ? (
+                messages.map((message, index) => (
+                  <li
+                    key={index}
+                    ref={
+                      index === messages.length - 1 ? latestMessageRef : null
+                    }
+                    className="text-2xl list-none message sent flex
+                    flex-col
+                    p- 25px
+                    overflow-y-auto overflow-x-hidden flex-1 min-h-0"
+                  >
+                    {message}
+                  </li>
+                ))
+              ) : (
+                <div className="text-3xl flex justify-center items-center w-[100%]">
+                  <p> No messages</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
-      <ChatInput />
+      <ChatInput addMessage={addMessage} />
     </div>
   );
 }
