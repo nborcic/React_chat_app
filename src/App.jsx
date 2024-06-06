@@ -10,16 +10,23 @@ function App() {
 
   const addMessage = (message) => {
     setMessages([...messages, message]);
-   
   };
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
+  function fetchReceivedMessage() {
+    fetch("https://api.adviceslip.com/advice")
+      .then((response) => response.json())
+      .then((data) => {
+        addMessage(data.slip.advice);
+        console.log(addMessage);
+      });
+  }
   return (
     <div className={`outSideWall ${theme}`}>
-      <ContactsSidebar toggleTheme={toggleTheme} />
+      <ContactsSidebar toggleTheme={toggleTheme} fetchReceivedMessage={fetchReceivedMessage}/>
       <ChatArea addMessage={addMessage} messages={messages} />
     </div>
   );

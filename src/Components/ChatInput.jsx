@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-function ChatInput({ addMessage }) {
+function ChatInput({ addMessage, onSpacePressed }) {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValue.trim() !== "") {
-      addMessage(inputValue);
+      addMessage({ text: inputValue, sender: 'user' });
       setInputValue("");
     }
   };
@@ -14,6 +14,9 @@ function ChatInput({ addMessage }) {
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSubmit(e);
+    }
+    if (e.key === " ") {
+      onSpacePressed(e);
     }
   };
   return (
