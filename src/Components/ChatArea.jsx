@@ -43,7 +43,7 @@ function ChatArea({ messages, addMessage }) {
         <div className="chatDiv" id="chatDiv">
           <div className="chatBubble">
             <div className="chatText flex flex-col p-2 m-2">
-            {messages.length > 0 ? (
+              {messages.length > 0 ? (
                 messages.map((message, index) => (
                   <div
                     key={index}
@@ -51,7 +51,9 @@ function ChatArea({ messages, addMessage }) {
                       index === messages.length - 1 ? latestMessageRef : null
                     }
                     className={`message text-2xl p-2 m-2 ${
-                      message.sender === "bot" ? "bg-white text-black self-start" : "bg-green-500 self-end"
+                      message.sender === "bot"
+                        ? "bg-white text-black self-start"
+                        : "bg-green-500 self-end"
                     }`}
                   >
                     {message.text}

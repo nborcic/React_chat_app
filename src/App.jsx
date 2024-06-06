@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ContactsSidebar from "./Components/ContactsSidebar";
 import ChatArea from "./Components/ChatArea";
 import "./App.css";
 
+
+
 function App() {
   const [theme, setTheme] = useState("light");
+  const [contact, setContact] = useState();
 
   const [messages, setMessages] = useState([]);
+
+  const selectContact = (contact) => {
+    setContact(contact);
+  };
+
+  useEffect(() => {
+    const storedMessages = JSON.parse(localStorage.getItem("messages")) || {};
+    setMessages(storedMessages);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("messages", JSON.stringify(messages));
+  }, [messages]);
 
   const addMessage = (message) => {
     setMessages([...messages, message]);
@@ -26,7 +42,12 @@ function App() {
   }
   return (
     <div className={`outSideWall ${theme}`}>
-      <ContactsSidebar toggleTheme={toggleTheme} fetchReceivedMessage={fetchReceivedMessage}/>
+      <ContactsSidebar
+        toggleTheme={toggleTheme}
+        fetchReceivedMessage={fetchReceivedMessage}
+        selectContact={selectContact}
+        
+      />
       <ChatArea addMessage={addMessage} messages={messages} />
     </div>
   );

@@ -1,7 +1,12 @@
 import React from "react";
 import Contact from "./Contact";
+const contacts = [
+  { id: 1, name: "Alice", phone: "123-456-7890" },
+  { id: 2, name: "Bob", phone: "234-567-8901" },
+  { id: 3, name: "Charlie", phone: "345-678-9012" },
+];
 
-function ContactsSidebar({ toggleTheme }) {
+function ContactsSidebar({ toggleTheme, selectContact }) {
   return (
     <div className="contactsSideBar" id="contactSideBar">
       <div className="contactsNav">
@@ -39,9 +44,13 @@ function ContactsSidebar({ toggleTheme }) {
           />
         </div>
       </div>
-      <Contact name="Mateo Mein" phone="+44 3358 487" />
-      <Contact name="Pjotr Mein" phone="+44 487 3358" />
-      <Contact name="Mike Mein" phone="+44 123 7778" />
+      {contacts.map((contact) => (
+        <Contact
+          key={contact.id}
+          contact={contact}
+          selectContact={selectContact}
+        />
+      ))}
     </div>
   );
 }
