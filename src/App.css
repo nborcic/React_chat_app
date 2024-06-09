@@ -228,3 +228,7 @@ body {
   margin: 0 auto;
   background-color: #c9cfd4;
 }
+
+.active{
+  border: 1px solid #2bd168;
+}

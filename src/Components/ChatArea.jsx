@@ -1,11 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 import ChatInput from "../Components/ChatInput";
+import contacts from "../assets/lib/contacts";
 
-function ChatArea({ messages, addMessage }) {
+function ChatArea({ messages, addMessage, selectedContact }) {
   const latestMessageRef = useRef(null);
 
   async function onSpacePressed(e) {
     e.preventDefault();
+
     const response = fetch("https://api.adviceslip.com/advice")
       .then((response) => response.json())
       .then((data) => {
@@ -43,7 +45,7 @@ function ChatArea({ messages, addMessage }) {
         <div className="chatDiv" id="chatDiv">
           <div className="chatBubble">
             <div className="chatText flex flex-col p-2 m-2">
-              {messages.length > 0 ? (
+              {selectedContact ? (
                 messages.map((message, index) => (
                   <div
                     key={index}

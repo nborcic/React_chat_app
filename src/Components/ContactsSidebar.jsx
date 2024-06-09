@@ -1,17 +1,13 @@
 import React from "react";
 import Contact from "./Contact";
-const contacts = [
-  { id: 1, name: "Alice", phone: "123-456-7890" },
-  { id: 2, name: "Bob", phone: "234-567-8901" },
-  { id: 3, name: "Charlie", phone: "345-678-9012" },
-];
+import contacts from "../assets/lib/contacts";
 
 function ContactsSidebar({ toggleTheme, selectContact }) {
   return (
     <div className="contactsSideBar" id="contactSideBar">
-      <div className="contactsNav">
-        <div className="navTop">
-          <div className="navImg">
+      <div className="contactsNav ">
+        <div className="navTop p-1">
+          <div className="navImg p-1">
             <img src="src/assets/navImg.png" alt="Nav" />
             <img
               src="src/assets/day.night_circle.webp"
@@ -24,7 +20,7 @@ function ContactsSidebar({ toggleTheme, selectContact }) {
             <img src="src/assets/navBar_iconright.png" alt="Nav Icons" />
           </div>
         </div>
-        <div className="navDivBottom">
+        <div className="navDivBottom p-6">
           <input
             className="navInput"
             id="searchBar"

@@ -1,0 +1,58 @@
+const contacts = [
+    {
+        id: 1,
+        name: "Alice",
+        phone: "123-456-7890",
+        lastTime: "12:00",
+        messages: [
+            { id: 0, text: "Hey there!", time: "10:30" },
+            { id: 1, text: "How's it going?", time: "13:15" },
+            { id: 2, text: "What are you up to?", time: "16:45" },
+            { id: 3, text: "Hey there!", time: "10:30" },
+            { id: 4, text: "How's it going?", time: "13:15" },
+            { id: 5, text: "What are you up to?", time: "16:45" },
+            { id: 6, text: "Hello!", time: "20:30" },
+            { id: 7, text: "How's your day?", time: "09:00" },
+        ],
+        photo: "https://via.placeholder.com/150",
+        emoji: "👋",
+    },
+    {
+        id: 2,
+        name: "Bob",
+        phone: "234-567-8901",
+        lastTime: "03:00",
+        messages: [
+            { id: 0, text: "Hey there!", time: "10:30" },
+            { id: 1, text: "How's it going?", time: "13:15" },
+            { id: 2, text: "What are you up to?", time: "16:45" },
+            { id: 3, text: "Hey there!", time: "10:30" },
+            { id: 4, text: "How's it going?", time: "13:15" },
+            { id: 5, text: "What are you up to?", time: "16:45" },
+            { id: 6, text: "Hello!", time: "20:30" },
+            { id: 7, text: "How's your day?", time: "09:00" },
+        ],
+        photo: "https://via.placeholder.com/150",
+        emoji: "👋",
+    },
+    {
+        id: 3,
+        name: "Charlie",
+        phone: "345-678-9012",
+        lastTime: "21:00",
+        messages: [
+            { id: 0, text: "Hey there!", time: "10:30" },
+            { id: 1, text: "How's it going?", time: "13:15" },
+            { id: 2, text: "What are you up to?", time: "16:45" },
+            { id: 3, text: "Hey there!", time: "10:30" },
+            { id: 4, text: "How's it going?", time: "13:15" },
+            { id: 5, text: "What are you up to?", time: "16:45" },
+            { id: 6, text: "Hello!", time: "20:30" },
+            { id: 7, text: "How's your day?", time: "09:00" },
+        ],
+        photo: "https://via.placeholder.com/150",
+        emoji: "👋",
+    },
+];
+
+export default contacts;

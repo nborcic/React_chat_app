@@ -6,7 +6,7 @@ function ChatInput({ addMessage, onSpacePressed }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValue.trim() !== "") {
-      addMessage({ text: inputValue, sender: 'user' });
+      addMessage({ text: inputValue, sender: "user" });
       setInputValue("");
     }
   };
