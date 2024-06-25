@@ -1,18 +1,19 @@
-import React, { useRef, useEffect, useState } from "react";
-import ChatInput from "../Components/ChatInput";
-import contacts from "../assets/lib/contacts";
+import { React, useRef, useEffect } from "react";
+import ChatInput from "./ChatInput";
 
-function ChatArea({ messages, addMessage, selectedContact }) {
+function ChatArea({ messages, addMessage, selectedContact, messagesShown }) {
   const latestMessageRef = useRef(null);
 
   async function onSpacePressed(e) {
     e.preventDefault();
-
-    const response = fetch("https://api.adviceslip.com/advice")
-      .then((response) => response.json())
-      .then((data) => {
-        addMessage({ text: data.slip.advice, sender: "bot" });
-      });
+    try {
+      const response = await fetch("https://api.adviceslip.com/advice");
+      const data = await response.json();
+      const advice = data.slip.advice;
+      addMessage({ text: advice, sender: "bot" });
+    } catch (error) {
+      console.error("Error fetching advice:", error);
+    }
   }
 
   useEffect(() => {
@@ -46,11 +47,13 @@ function ChatArea({ messages, addMessage, selectedContact }) {
           <div className="chatBubble">
             <div className="chatText flex flex-col p-2 m-2">
               {selectedContact ? (
-                messages.map((message, index) => (
+                messagesShown.map((message, index) => (
                   <div
                     key={index}
                     ref={
-                      index === messages.length - 1 ? latestMessageRef : null
+                      index === messagesShown.length - 1
+                        ? latestMessageRef
+                        : null
                     }
                     className={`message text-2xl p-2 m-2 ${
                       message.sender === "bot"

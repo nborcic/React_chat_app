@@ -19,6 +19,7 @@ function ChatInput({ addMessage, onSpacePressed }) {
       onSpacePressed(e);
     }
   };
+
   return (
     <div
       className="chatInput custom-search"

@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 
 function Contact({ contact, selectContact }) {
   const isActive = contact.isActive ? "active" : "";
@@ -22,7 +21,9 @@ function Contact({ contact, selectContact }) {
           />
         </div>
         <div className="flex flex-col">
-          <p>{contact.name}</p>
+          <p>
+            {contact.name} {contact.lastName}
+          </p>
           <p>{contact.phone}</p>
         </div>
       </div>

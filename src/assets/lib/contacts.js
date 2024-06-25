@@ -2,6 +2,7 @@ const contacts = [
     {
         id: 1,
         name: "Alice",
+        lastName: "Smith",
         phone: "123-456-7890",
         lastTime: "12:00",
         messages: [
@@ -12,7 +13,7 @@ const contacts = [
             { id: 4, text: "How's it going?", time: "13:15" },
             { id: 5, text: "What are you up to?", time: "16:45" },
             { id: 6, text: "Hello!", time: "20:30" },
-            { id: 7, text: "How's your day?", time: "09:00" },
+            { id: 7, text: " day?", time: "09:00" },
         ],
         photo: "https://via.placeholder.com/150",
         emoji: "👋",
@@ -20,6 +21,7 @@ const contacts = [
     {
         id: 2,
         name: "Bob",
+        lastName: "Johnson",
         phone: "234-567-8901",
         lastTime: "03:00",
         messages: [
@@ -27,10 +29,10 @@ const contacts = [
             { id: 1, text: "How's it going?", time: "13:15" },
             { id: 2, text: "What are you up to?", time: "16:45" },
             { id: 3, text: "Hey there!", time: "10:30" },
-            { id: 4, text: "How's it going?", time: "13:15" },
+            { id: 4, text: "Hsdgfadfadgf?", time: "13:15" },
             { id: 5, text: "What are you up to?", time: "16:45" },
             { id: 6, text: "Hello!", time: "20:30" },
-            { id: 7, text: "How's your day?", time: "09:00" },
+            { id: 7, text: "afgdfgdafafgdgfadr day?", time: "09:00" },
         ],
         photo: "https://via.placeholder.com/150",
         emoji: "👋",
@@ -38,6 +40,7 @@ const contacts = [
     {
         id: 3,
         name: "Charlie",
+        lastName: "Brown",
         phone: "345-678-9012",
         lastTime: "21:00",
         messages: [
@@ -48,7 +51,7 @@ const contacts = [
             { id: 4, text: "How's it going?", time: "13:15" },
             { id: 5, text: "What are you up to?", time: "16:45" },
             { id: 6, text: "Hello!", time: "20:30" },
-            { id: 7, text: "How's your day?", time: "09:00" },
+            { id: 7, text: "How's ?", time: "09:00" },
         ],
         photo: "https://via.placeholder.com/150",
         emoji: "👋",
